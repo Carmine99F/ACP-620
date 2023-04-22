@@ -22,6 +22,18 @@
         Consenti agli amministratori di progetto di assegnare ruoli.
 
         Risposta : progetto gestito dall'azienda con modello Kanban
+        i filitri secondari non sono consentiti nei progetti gestiti dal team, solo le bacheche kanban gestite dall'azienda lo consentono, nemmeno sulle bacheche di progetti scrum gestiti dall'azienda sono consentiti
+        Per quanto riguarda l'assegnazione di ruoli da parte degli amminitratori di progetto cioè è permesso sia nei progetti gestiti dal team che dall'azienda
+
+
+5)  Amelia ha appena creato un progetto scrum gestito dall'azienda denominato "MIG".
+    Amelia si chiede quali schemi siano stati creati automaticamente da Jira per il suo progetto "MIG".
+    Identificare quali schemi sono unici per il progetto appena creato "MIG"? (Scegli tre)
+
+    Schema del Workflow
+    Screen Scheme
+    Issue type Schema
+
 
 
 
