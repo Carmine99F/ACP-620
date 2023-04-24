@@ -143,6 +143,77 @@ Quale campo soddisfa questi requisiti?
      " Campo personalizzato - Seleziona elenco (scelta singola) " è CORRETTA. L'informazione importante è che deve consentire la scelta di un solo pianeta e che deve essere utilizzata a scopo di segnalazione in un gadget di statistiche. Tutte le altre opzioni accettano più valori o non sono sufficientemente precise per la segnalazione in un gadget Statistiche problemi.
 
     
+11)Hai appena creato un nuovo progetto gestito dall'azienda "CMW" con modello Kanban e assegnato a Ryan il ruolo di "Amministratore". Ryan deve rimanere l'unico amministratore di progetto del progetto "CMW" per garantire la coerenza della configurazione.
+Ryan ha raccolto i seguenti requisiti dal suo team:
+Requisito 1: creare componenti "Front", "Back", "Security"
+Requisito 2: creare una nuova bacheca Kanban situata nel progetto appena creato ma con solo storie
+Requisito 3: visualizzare la data di scadenza su tutte le schermate e i layout dei problemi utilizzati dal progetto
+Requisito 4: aggiornare il layout del problema per nascondere i campi quando sono vuoti
+Requisito 5: concedere l'autorizzazione del progetto "Elimina problemi" al responsabile del progetto "CMW"
+Tutte le altre impostazioni di Jira sono nella loro configurazione predefinita e non sono mai state aggiornate.
+Identifica quale configurazione non può essere eseguita da Ryan. (Scegline due)
+
+    L'opzione che dice " Requisito 3 " è CORRETTA.   Per impostazione predefinita, il campo di sistema della data di scadenza non viene aggiunto alle schermate e solo l'amministratore Jira può modificare le schermate in Jira Cloud. Inoltre, poiché il layout della rivista si basa sulla schermata di modifica del tipo di rivista corrispondente, Ryan non sarà in grado di trovare il campo "data di scadenza" nel layout della rivista.
+    L'opzione che dice " Requisito 5 " è CORRETTA.   La concessione dell'autorizzazione del progetto "Elimina problemi" al responsabile del progetto può essere eseguita in due modi. Assegnando al responsabile del progetto il ruolo di progetto "Amministratori" o modificando lo schema di autorizzazione e aggiungendo il "Responsabile del progetto". Poiché Ryan deve rimanere l'unico amministratore di progetto del progetto "CMW", il responsabile del progetto non deve essere aggiunto al ruolo di progetto "Amministratori". Inoltre, la modifica dello schema di autorizzazione richiede che Ryan sia un amministratore di Jira e non solo un amministratore di progetto. Pertanto, tale requisito non può essere soddisfatto.
+
+
+12)Quali informazioni non vengono visualizzate nel pannello "Development"?
+
+    Number of pipelines
+    se il tuo amministratore ha connesso Jira Software a uno strumento di sviluppo compatibile, vedrai le informazioni sullo sviluppo insieme ai tuoi problemi in Jira. A seconda degli strumenti che hai connesso, Jira mostra i rami collegati, i commit, le richieste pull, le build, le distribuzioni e i flag delle funzionalità. Inoltre, devi fare riferimento alle chiavi dei problemi di Jira in commit, rami e richieste pull per visualizzare l'attività di sviluppo in Jira. Scopri di più sui problemi di riferimento nel tuo lavoro di sviluppo . Una volta che le informazioni sullo sviluppo sono state collegate a un problema, non possono essere rimosse.
+
+13)Di seguito sono riportate le impostazioni di configurazione nel progetto gestito dall'azienda "FLO":
+Project Lead : Zara
+--
+Default Assignee: Project Lead
+-- 
+Component          Component Lead          Default Assignee
+------------------------------------------------------------
+Front              Mia                     Project Lead
+Authentication     James                   Component Lead
+MicroService-XUT   Sophia                  Project Default
+MicroService-MLK   Martinez                Unassigned   
+MicroService-BSO   Ryan                    Component Lead
+
+Hai creato una nuova issue, selezionato i seguenti componenti: “Front”, “Authentication”, “MicroService-XUT” e hai lasciato l'assegnatario come “Automatic”.
+A chi verrà assegnato il numero appena creato?
+
+    James
+    Nel caso di problemi con più componenti, la struttura dell'assegnatario funziona dall'alto verso il basso, cioè dal meno specifico al più specifico. Il più specifico (Component Lead) ha la precedenza sugli altri. Si supponga, ad esempio, che un problema abbia più componenti e che per alcuni di questi componenti sia selezionata l'opzione Non assegnato. In tal caso, per alcuni è specificato un responsabile del progetto e per altri un responsabile del componente, quindi il responsabile del componente avrà sempre la precedenza come assegnatario. In sintesi, ecco la regola da ricordare
+    L'assegnatario è selezionato > Component Lead (Component Id Ordine Crescente) > Project Default > Project Lead
+
+14)Hai assunto Janice, un nuovo scrum master, per unirti al tuo team.
+Deve essere in grado di creare e riordinare gli sprint nella bacheca Kanban gestita dall'azienda.
+Identifica quale azione le consentirà di soddisfare questi requisiti.
+
+    L'opzione che dice " Aggiungi Janice a un ruolo di progetto elencato nell'autorizzazione "Gestisci Sprint" " è CORRETTA. Janice ha bisogno dell'autorizzazione per il progetto "Gestisci sprint". Questa autorizzazione consente alle persone di creare, avviare e completare gli sprint nel progetto. Ciò include la regolazione della durata e dell'obiettivo dello sprint.
+    Questa autorizzazione dipende dall'accesso del prodotto a Jira Software. Scopri di più su come consentire alle persone di accedere ai tuoi prodotti Atlassian . A seconda della complessità della query del filtro della tua bacheca, potresti aver bisogno di ulteriori considerazioni durante la configurazione dell'autorizzazione Gestisci sprint per gli utenti. Ad esempio, se una bacheca contiene sprint di più progetti (compresi i progetti di servizio), gli utenti devono gestire gli sprintautorizzazione in ogni progetto per completare gli sprint con successo. Per ulteriori informazioni sull'impatto dei filtri complessi e sui modi per semplificare la query del filtro, consulta Utilizzo dell'autorizzazione Gestisci sprint per i casi avanzati .
+    Alcune azioni sprint (ad esempio, l'aggiunta di problemi agli sprint o la rimozione di problemi dagli sprint) richiedono le autorizzazioni Pianifica problemi e Modifica problemi per avere esito positivo.
+
+
+15)In qualità di amministratore di progetto di un progetto gestito dall'azienda, quali azioni puoi eseguire sull'issue layout?
+
+    Riordinare i campi
+    Nascondere un campo se è vuoto
+
+16)Vuoi allegare un'immagine a un problema. Identificare quale azione non può essere eseguita?
+
+    Send the image using JiraAirDrop to the Jira issue”. Non esiste alcuna funzione JiraAirDrop
+
+17)Nancy è un membro del progetto WEB3 gestito dall'azienda, che utilizza un workflow semplified generato da Jira e da allora non è mai stato aggiornato.
+Nancy non può spostare i problemi nella colonna Done nella bacheca del progetto.
+Di quale permesso ha bisogno Nancy?
+
+    Transition Issue Permission
+
+18)Michelle è l'amministratore del progetto “VENUS”.
+Attualmente sono disponibili due versioni di questo progetto: la versione “1.0” e la versione “2.0”. Entrambe le versioni hanno problemi a farvi riferimento.
+La versione “1.0” ha lo stato “ RELEASED ” e la versione “2.0” ha lo stato “ UNRELEASED ”.
+Michelle ha erroneamente archiviato entrambe le versioni, "1.0" e "2.0". Dopo aver notato il suo errore, ti ha chiesto se poteva e doveva annullare l'archiviazione di entrambe le versioni per correggere il suo errore.
+Individua quale affermazione è corretta.
+
+    Michelle può e deve annullare l'archiviazione di entrambe le versioni
+    Per annullare il rilascio di una versione, seleziona Annulla archiviazione dal menu delle azioni. Pertanto, se una versione ha lo stato "RILASCIATO" prima dell'archiviazione, l'annullamento dell'archiviazione riporterà il suo stato a "RILASCIATO". La stessa regola si applica a una versione con lo stato "UNRELEASED". Quindi l'opzione che dice " Michelle può e deve annullare l'archiviazione di entrambe le versioni "1.0" e "2.0" per correggere il suo errore " è CORRETTA .
 
 
 
