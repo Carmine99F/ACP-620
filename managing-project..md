@@ -1,3 +1,6 @@
+                                                    Test Pratico 1
+
+
 1)Hanna ha appena creato il suo primo progetto gestito dal team con modello Kanban. Hanna ora si chiede dove può creare un ruolo personalizzato per il suo progetto appena creato
 
     Access
@@ -215,6 +218,10 @@ Individua quale affermazione è corretta.
     Michelle può e deve annullare l'archiviazione di entrambe le versioni
     Per annullare il rilascio di una versione, seleziona Annulla archiviazione dal menu delle azioni. Pertanto, se una versione ha lo stato "RILASCIATO" prima dell'archiviazione, l'annullamento dell'archiviazione riporterà il suo stato a "RILASCIATO". La stessa regola si applica a una versione con lo stato "UNRELEASED". Quindi l'opzione che dice " Michelle può e deve annullare l'archiviazione di entrambe le versioni "1.0" e "2.0" per correggere il suo errore " è CORRETTA .
 
+
+
+
+                                                    Test Pratico 2
 
 
 
