@@ -223,6 +223,228 @@ Individua quale affermazione è corretta.
 
                                                     Test Pratico 2
 
+1)Di seguito sono riportate le impostazioni di configurazione nel progetto gestito dall'azienda "RISE":
+
+    Project Lead : James
+    
+    --
+    Default Assignee: Project Lead
+    -- 
+    
+    Component          Component Lead          Default Assignee
+    ------------------------------------------------------------
+    Alpha              Rihana                  Component Lead
+    Beta               Amelia                  Component Lead
+    Gamma              Sophia                  Project Default
+    Delta              Jeniffer                Unassigned   
+
+Hai creato una nuova issue, selezionato tutti e 4 i componenti e selezionato Elijah come assegnatario.
+
+A chi verrà assegnato l'issue appena creata?
+
+    Spiegazione : Nel caso di problemi con più componenti, la struttura dell'assegnatario funziona dall'alto verso il basso, cioè dal meno specifico al più specifico. Il più specifico (Component Lead) ha la precedenza sugli altri. Si supponga, ad esempio, che un problema abbia più componenti e che per alcuni di questi componenti sia selezionata l'opzione Non assegnato. In tal caso, per alcuni è specificato un responsabile del progetto e per altri un responsabile del componente, quindi il responsabile del componente avrà sempre la precedenza come assegnatario. In sintesi, ecco la regola da ricordare (controlla anche lo schema qui sotto):
+    L'emissione sarà assegnata a:
+
+    Assegnatario selezionato
+
+    Se non viene selezionato alcun assegnatario allora --> Component Lead (Component Id Ascending Order)
+
+    Se non è selezionato alcun componente, allora --> Predefinito progetto
+
+    Se non è definita alcuna impostazione predefinita del progetto, allora --> Project Lead
+
+    Quindi la questione appena creata sarà assegnata a " Elia " poiché è lui l'assegnatario che è stato selezionato. 
+
+    Nota che nella documentazione troverai questo:
+
+    L'assegnatario predefinito di un componente sostituirà l'assegnatario predefinito generale del progetto. Se qualcuno crea un problema con più di un componente e gli assegnatari predefiniti per tali componenti sono persone diverse, Jira assegna il problema all'assegnatario predefinito del componente che è il primo in ordine alfabetico.
+
+    Questo non è corretto . L'assegnazione non è fatta secondo “il componente che è primo in ordine alfabetico”. Puoi provare il seguente esempio:
+
+    Test1: creare tre componenti nel seguente ordine: prima "Component1", quindi "Component2" e quindi "Component3". Quindi assegnare a ciascun componente un lead componente diverso e impostare l'assegnatario predefinito di ciascun componente sul relativo lead componente. Crea un problema, lascia l'assegnatario come automatico e scegli tutti e tre i componenti. Il problema verrà automaticamente assegnato al lead componente del componente "Componente1" poiché il suo ID componente sarà il più basso.
+
+    Test2: eliminare tutti e tre i componenti del test "Test1". Ora crea gli stessi componenti ma in un ordine diverso: "Component2" prima, poi "Component1" secondo, e poi, infine, il "Component3". Come per il “Test1” assegnare ad ogni componente un capogruppo diverso e impostare l'assegnatario di default di ogni componente al suo capogruppo. Crea un problema, lascia l'assegnatario come automatico e scegli tutti e tre i componenti. Il problema verrà assegnato automaticamente al lead componente del componente "Componente2" poiché il suo ID componente sarà il più basso.
+
+    Queste informazioni sono state inviate al team di Atlassian.
+
+
+2)Richard ha creato una nuova bacheca gestita dall'azienda utilizzando il menu "Crea bacheca".
+Ha utilizzato l'opzione "Board da un progetto esistente" e ha scelto il progetto Kanban gestito dall'azienda "UPSILON", a cui il suo team ha già accesso.
+Tuttavia, quando ha inviato l'URL della scheda al suo team, non è stato possibile accedervi.
+Identificare perché?
+
+    L'opzione che dice " A Richard manca l'autorizzazione globale "Crea oggetti condivisi" " è CORRETTA. Se crei una bacheca tramite la pagina Bacheche in Jira (URL: /jira/boards, accessibile anche quando fai clic su "Visualizza tutto", controlla lo screenshot qui sotto), non sarai in grado di condividerla, a meno che tu non abbia l'opzione "Crea Autorizzazione globale degli oggetti condivisi.
+    Se crei la bacheca tramite i metodi seguenti, non hai bisogno dell'autorizzazione globale "Crea oggetti condivisi" per condividere la bacheca:
+    Creazione di un progetto (in cui viene creata una bacheca per il progetto per impostazione predefinita)
+    Configurare Jira Software per la prima volta (dove ti viene chiesto di creare un progetto, che crea anche una bacheca per il progetto)
+    Copiare una bacheca (la bacheca copiata sarà condivisa con gli stessi utenti della bacheca originale)
+
+3)Quale affermazione è falsa riguardo le label?
+
+    - è possibile utilizzare il campo label in un Issue Statistic gadget
+    -Le label sono cliccabili
+    -Le label sono case-sensitive
+    -Non è possibile rimuovere una label una volta creata
+
+    Spiegazione: le label  consentono alle persone di contrassegnare le issue con frammenti di testo riutilizzabili immessi come testo in formato libero. Jira suggerisce le etichette esistenti per ridurre gli errori di immissione. Le persone possono anche creare nuove etichette digitando nel campo dell'etichetta.
+    L'opzione che dice “ Non è possibile rimuovere un'etichetta una volta creata ” è falsa e quindi CORRETTA. Per eliminare completamente una label  dal tuo sito Jira, la label deve essere prima rimossa da tutte le issue in quel sito. Una volta che l'etichetta è stata rimossa da tutte le issue , non sarà più visibile quando si sfogliano le etichette.
+
+
+4)Identifica quali funzionalità NON sono supportate dai progetti gestiti dal team.
+
+    -Aggiungi un campo "affects version" ai campi esistenti di un issue type
+    -Create a custom issue type
+    -Aggiungi un campo "Fix version" ai campi esistenti di un issue type
+    -Add a screen transition for a workflow
+    -Personalizza l'indirizzo email di notifica del progetto utilizzato per inviare email
+
+    L'opzione che dice " Aggiungi una transizione di schermata per un flusso di lavoro " NON È SUPPORTATA; quindi è CORRETTO : non è possibile aggiungere transizioni di schermate ai flussi di lavoro nei progetti gestiti dal team.
+    L'opzione che dice " Aggiungi un campo " Versioni interessate " ai campi esistenti di un tipo di problema " NON È SUPPORTATA e quindi è CORRETTA . Di seguito è riportato un elenco di tutti i campi e tipi di campo disponibili nei progetti gestiti dal team. Come puoi notare, non esiste un campo "Versioni interessate". 
+
+5)Un progetto Kanban gestito dall'azienda utilizza il seguente schema di autorizzazione:
+
+    Permission         Users/Groups/Project roles
+    ------------------------------------------------
+    Administer         Project Role (Administrators)
+    Projects
+    --
+    Browse Projects    Project Role (Administrators)
+                       Project Role (Global Team)
+    --
+    Modify Reporter    Any logged-in user
+    --
+    Assignable User    Project Role (Developers)
+                       Project Role (Administrators)
+                       Project Role (Feature Team)
+    -- 
+    Edit issues         Project Role (Developers)
+                        Project Role (Administrators)
+                        Project Role (Global Team)
+                        Project Role (Feature Team)
+    --
+    Assign issues      Project Role (Administrators)
+                       Project Role (Feature Team)
+
+Olivia deve essere in grado di:
+Modifica l'assegnatario
+Modify Reporter
+Non le dovrebbero essere concesse più autorizzazioni del necessario.
+Di quale ruolo o ruoli ha bisogno Olivia per soddisfare i requisiti di cui sopra garantendo al contempo il principio del privilegio minimo?
+
+
+    Future team and Global team
+
+    "Modifica l'assegnatario" → Olivia necessita dell'autorizzazione "Assign Issue". Questa autorizzazione consente alle persone di modificare il valore del campo Assegnatario su qualsiasi issue del tuo progetto. Non consente di assegnare problemi alle persone (vedere Autorizzazione utente assegnabile ). Nel nostro caso, a due ruoli viene concessa questa autorizzazione: "Amministratori" e "Team di funzionalità".
+
+    "Modifica il reporter" → Olivia necessita dell'autorizzazione al progetto "Modifica reporter". Questa autorizzazione consente alle persone di modificare il valore del campo Reporter predefinito su qualsiasi problema del tuo progetto. Il campo Reporter viene impostato automaticamente sull'autore del problema al momento della creazione del problema. Ciò consente a qualcuno di creare problemi per conto di qualcun altro. Nel nostro caso, questa autorizzazione è concessa a tutti gli utenti che hanno effettuato l'accesso.
+    Tieni presente che nei progetti software, le persone devono avere accesso al prodotto a Jira Software per utilizzare questa autorizzazione.
+    Oltre a questi due requisiti, Olivia necessita delle autorizzazioni del progetto "Sfoglia progetti" e "Modifica problemi" per poter visualizzare e modificare i problemi. Perché senza queste due autorizzazioni, i requisiti di cui sopra non possono essere soddisfatti. In base allo schema di autorizzazione di cui sopra, i ruoli "Amministratori" e "Team globale" possono visualizzare e modificare i problemi.
+    In sintesi, Olivia ha bisogno di: ("Amministratori" O "Team di funzionalità") E ("Amministratori" O "Team globale"). Quindi abbiamo due soluzioni:
+    Soluzione 1 → Assegnale solo il ruolo di "Amministratori": questo le consentirà di essere anche l'amministratore del progetto e come tale avrà più autorizzazioni del necessario. Questa opzione non è buona poiché il principio del minimo privilegio non è rispettato.
+    Soluzione 2 → Assegnale due ruoli, "Feature team" e "Global Team". Il ruolo "Feature team" è necessario anche se le concederà l'autorizzazione "Utente assegnabile", ma avrà meno privilegi che se le fosse concesso il "ruolo di amministratore".
+    Quindi l'opzione che dice " Il ruolo "Feature Team" e il ruolo "Global Team" " è CORRETTA. 
+
+
+6)Vuoi aggiungere un task secondario all'ambito di uno sprint attivo.
+Sapendo che la "Stima rimanente e il tempo impiegato" è abilitato su questa Scrum Board, come verrà trattata la sottoattività?
+
+    L'attività secondaria verrà trattata come una modifica dell'ambito e si rifletterà nel  burndown chart
+    l Burndown Chart si applica solo ai board Scrum. Sono inclusi solo gli Story Point sulle attività principali. Le attività secondarie non lo sono.
+    Se aggiungi una sottoattività a un problema in uno sprint attivo, viene trattata come una modifica dell'ambito. Tuttavia, questa modifica dell'ambito si rifletterà nel grafico di burndown solo se utilizzi i campi Stima rimanente o Tempo trascorso sulla scheda. Quindi l'opzione che dice " Il task secondario verrà trattato come una modifica dell'ambito e si rifletterà nel grafico di burndown " è CORRETTA.
+
+
+
+7) l tuo team utilizza un progetto gestito dall'azienda per gestire il proprio lavoro. Stanno lavorando alla versione "1.0" che ha lo stato " UNRELEASED ".
+Il tuo team si è rivolto a te con i seguenti requisiti:
+Sposta tutti i problemi irrisolti dalla versione "1.0" alla nuova versione "2.0"
+Mantenere la versione "1.0" come opzione disponibile nel campo di sistema "Versioni interessate".
+Quale singola azione dovresti eseguire per soddisfare entrambi i requisiti di cui sopra?
+
+    Rilasciare la versione 1.0
+    L'opzione che dice " Release version 1.0 " è CORRETTA . Quando si rilascia una versione, Jira suggerisce automaticamente di spostare i problemi irrisolti in una versione che dovrebbe essere selezionata o di ignorare i problemi irrisolti (vedi screenshot sotto). Quindi l'operazione da eseguire è “Rilasciare la versione 1.0”. Quindi la risposta corretta è 1.
+
+8)Alan è nuovo in Jira e ha appena creato il suo primo progetto gestito dal team da un modello Scrum.
+Alan vuole usare "Tempo" invece di "Punti storia" come stima.
+Identifica la sezione delle impostazioni del progetto in cui Alan può farlo.
+
+    Features
+    Spiegazione : l'impostazione della "Stima" in un progetto gestito dal team Scrum può essere eseguita utilizzando la pagina "Features" . Quindi l'opzione che dice " Features " è CORRETTA .
+
+9)Un utente Jira ha rilasciato le seguenti dichiarazioni:
+Affermazione 1: Jira non dispone di una funzione per consentire a un utente di modificare il monitoraggio del tempo di altri utenti
+Dichiarazione 2: Jira non dispone di una funzione per consentire a un utente di eliminare i commenti di altri utenti
+Cosa ne pensi di queste due affermazioni?
+
+    Entrambe le affermazioni 1 e 2 non sono corrette
+
+
+10)Più team stanno lavorando sulla stessa applicazione e devono eseguire sprint paralleli.
+Quale tipo di progetto supporta questa funzione?
+
+    Sia progetti gestiti dal team che dall'azienda
+    Spiegazione: la funzione Sprint paralleli consente di abilitare più sprint attivi che vengono eseguiti in parallelo tra loro. Ad esempio, se hai due team che lavorano sullo stesso backlog, ogni team può ora lavorare simultaneamente sul proprio sprint attivo.
+    Questa funzione è stata recentemente rilasciata per i progetti gestiti dal team (controlla JSWCLOUD-17195 ).
+
+
+11)In qualità di proprietario del prodotto, utilizzi regolarmente le funzionalità di votazione e visualizzazione. Ora devi aggiornare l'elenco degli osservatori in modo che i membri del tuo team possano ricevere aggiornamenti su storie importanti. Sfortunatamente, hai notato che non puoi aggiornare l'elenco degli osservatori.
+Quale configurazione deve essere aggiornata?
+
+    Concedi l'autorizzazione "Manager watchers"
+    L'opzione che dice " Concedi l'autorizzazione al progetto "Gestisci osservatori" " è CORRETTA.   Infatti, non avere l'autorizzazione del progetto "Gestisci osservatori" non ti consentirà di aggiungere/rimuovere osservatori a un problema.
+
+
+12)Lisa è la scrum master del progetto Kanban gestito dall'azienda "ZETA".
+Sebbene possa creare, modificare, trasferire e assegnare tutte le issue del suo progetto, ha recentemente notato che non è in grado di impostare le "Fix version".
+Quale permesso manca a Lisa?
+
+    "Resolve Issue" project permission
+    L'opzione che dice "Resolve Issue " è CORRETTA. In effetti, questa autorizzazione consente alle persone di impostare o cancellare un valore nel campo Risoluzione. Consente inoltre alle persone di impostare il campo Versione correzione per i problemi.
+
+13)Quale dei seguenti requisiti può essere soddisfatto solo utilizzando il campo "Componenti" anziché un campo personalizzato nei progetti gestiti dall'azienda? (Scegline due)
+
+
+    -Le issue sono facilmente identificabili senza ulteriori configurazioni
+    -Il campo deve essere obbligatorio in fase di creazione e determina l'assegnatario
+
+    L'opzione che dice “ Il campo deve essere obbligatorio durante la creazione e determinare l'assegnatario ” è CORRETTA. I componenti e i campi personalizzati possono essere impostati come obbligatori, ma solo i componenti possono determinare l'assegnatario. Un componente può essere utilizzato per sovrascrivere qualsiasi assegnatario predefinito a livello di progetto. Inoltre, l'assegnatario predefinito di un componente può essere uno dei seguenti: Predefinito progetto, Responsabile componente, Responsabile progetto e Non assegnato.
+
+    L'opzione che dice " Le issue associate sono facilmente identificabili senza ulteriori configurazioni " è CORRETTA . Dalla pagina Componenti nella barra laterale del progetto, puoi facilmente verificare quanti problemi fanno riferimento a ciascun componente. Inoltre, puoi fare clic sul link per ottenere l'elenco di questi problemi (controlla lo screenshot qui sotto). I campi personalizzati non hanno questa funzione.
+
+14)Quale tipo di collegamento non è supportato da Jira?
+
+    FTP web link
+    Un link a una issue di Jira in un altro sito
+    Spiegazione: è possibile collegare i problemi per tenere traccia del lavoro duplicato o correlato. Puoi, ad esempio: 
+    Crea un nuovo problema collegato da un problema esistente in un progetto di servizio o progetto aziendale sullo stesso sito Jira su un altro sito
+    Crea un'associazione tra un problema e una pagina Confluence
+    Collega un problema a qualsiasi altra pagina web
+    Quindi l'opzione che dice " An FTP web link " è falsa e quindi è CORRETTA
+
+15)Hai appena assunto un nuovo scrum master che si unisce al tuo team.
+Deve essere in grado di creare e riordinare gli sprint nella Scrum Board gestita dall'azienda.
+Identificare quale dei seguenti requisiti è necessario per soddisfare questo requisito.
+
+    Permission project
+    Product Access
+
+    L'opzione che dice " Permission project " è CORRETTA. In effetti, il nuovo scrum master necessita dell'autorizzazione del progetto "Gestisci sprint". Questa autorizzazione consente alle persone di creare, avviare e completare gli sprint nel progetto. Ciò include la regolazione della durata e dell'obiettivo dello sprint.
+
+    Questa autorizzazione dipende dall'accesso del prodotto a Jira Software. Scopri di più su come consentire alle persone di accedere ai tuoi prodotti Atlassian . A seconda della complessità della query del filtro della tua bacheca, potresti aver bisogno di ulteriori considerazioni durante la configurazione dell'autorizzazione Gestisci sprint per gli utenti. Ad esempio, se una bacheca contiene sprint di più progetti (compresi i progetti di servizio), gli utenti devono disporre dell'autorizzazione Gestisci sprint in ogni progetto per completare correttamente gli sprint. Per ulteriori informazioni sull'impatto dei filtri complessi e sui modi per semplificare la query del filtro, consulta Utilizzo dell'autorizzazione Gestisci sprint per i casi avanzati .
+
+    Esistono alcune azioni sprint (ad esempio, l'aggiunta di problemi agli sprint o la rimozione di problemi dagli sprint) che richiedono le autorizzazioni Pianifica problemi e Modifica problemi per avere esito positivo.
+
+    L'opzione che dice " Accesso al prodotto " è CORRETTA . Come spiegato in precedenza, l'autorizzazione del progetto "Gestisci sprint" da sola non è sufficiente perché dipende dall'accesso del prodotto a Jira Software.
+
+
+16)Mary è board administrator of a company-managed Kanban Board  “Delta Board”. Di solito lavora in coppia con James, l'amministratore del consiglio di molti altri consigli.
+Ha provato ad aggiungere James come nuovo amministratore del consiglio per il consiglio "Delta Board", ma non è in grado di ottenere l'elenco degli utenti suggeriti. Identificare perché?
+
+
+
+
+
+
+
 
 
 
